@@ -1,0 +1,36 @@
+<div class="container">
+    <legend>Profile</legend>
+    <div class="row">
+        <div class="col col-md-8" style="overflow-y: scroll; max-height: 100vh">
+            <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="firstName" formControlName="firstName"  [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"/>
+
+                    <div *ngIf="submitted && f.firstName.errors"
+                        class="alert alert-danger">
+                        <div *ngIf="submitted && profileForm.get('firstName')!.hasError('required')" class="invalid-feedback">
+                            <div *ngIf="profileForm.get('firstName')!.hasError('required')">First Name is required</div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                        <div *ngIf="submitted && profileForm.get('lastName')!.hasError('required')" class="invalid-feedback">
+                            <div *ngIf="profileForm.get('lastName')!.hasError('required')">Last Name is required</div>
+                        </div>
+                      
+                    </div>
+                    <div *ngIf="!submitted">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                    <div *ngIf="submitted">
+                        <h4>{{message}}</h4>
+                        <button type="button" (click)="clear()" class="btn btn-primary">Clear</button>
+                      </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

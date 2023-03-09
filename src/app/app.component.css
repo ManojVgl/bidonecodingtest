@@ -1,0 +1,14 @@
+
+  :host {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 100%;
+  }
+  
+  .content {
+ 
+    background: #f3f4f2;
+  }
+  .green-background {
+    background-color: #2ecc71;
+  }
